@@ -1,9 +1,9 @@
 # docker build -t ptimof/ghost .
 #
 # Build from the official release
-FROM ghost
+FROM ghost:alpine
 
-MAINTAINER Peter Timofejew <peter@timofejew.com>
+MAINTAINER Tim Friedrich <info@jimtim.de>
 
 # Add in better default config adapted from https://github.com/kitematic/ghost.git
 ADD config.example.js config.example.js

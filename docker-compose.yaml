@@ -1,0 +1,13 @@
+version: '2'
+services:
+  ghost:
+    build: .
+    environment:
+      - URL=http://localhost
+      - MAIL__FROM='<hallo@example.com>'
+      - MAIL__OPTIONS__HOST=smtp-relay.example.com
+      - USEMINFILES=true
+    volumes:
+      - ./ghost_alpine:/var/lib/ghost/content
+    ports:
+      - 80:2368

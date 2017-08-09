@@ -4,9 +4,18 @@
 FROM ghost:1.5.1-alpine
 
 MAINTAINER Tim Friedrich <info@jimtim.de>
-
-# Add in better default config adapted from https://github.com/kitematic/ghost.git
-COPY config.example.js config.example.js
-
 # Default environment variables
-ENV GHOST_URL http://my-ghost-blog.com
+ENV URL http://my-ghost-blog.com
+ENV MAIL__FROM '<hallo@example.com>'
+ENV MAIL__OPTIONS__HOST smtp-relay.example.com
+ENV USEMINFILES true
+
+COPY config.production.example.json config.production.example.json
+COPY env-defaults.sh /env-defaults.sh
+COPY docker-entrypoint.sh /usr/local/bin
+RUN dos2unix /env-defaults.sh \
+    && dos2unix /usr/local/bin/docker-entrypoint.sh \
+    && dos2unix config.production.example.json \
+    && apk add --no-cache bash && chmod +x /env-defaults.sh && chmod +x /usr/local/bin/docker-entrypoint.sh
+
+

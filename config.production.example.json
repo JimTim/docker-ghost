@@ -1,0 +1,27 @@
+{
+  "url": <URL>,
+  "server": {
+    "port": 2368,
+    "host": "0.0.0.0"
+  },
+  "useMinFiles": <USEMINFILES>,
+  "database": {
+    "client": "sqlite3",
+    "connection": {
+      "filename": "/var/lib/ghost/content/data/ghost.db"
+    }
+  },
+  "mail": { 
+    "transport": "SMTP", 
+    "options": { 
+        "host": <MAIL__OPTIONS__HOST> 
+    }, 
+    "from": <MAIL__FROM> 
+  },
+  "logging": false ,
+  "process": "systemd",
+  "paths": {
+    "contentPath": "/var/lib/ghost/content"
+  }
+}
+

@@ -1,7 +1,7 @@
 # docker build -t ptimof/ghost .
 #
 # Build from the official release
-FROM ghost:alpine
+FROM ghost:1.5.1-alpine
 
 MAINTAINER Tim Friedrich <info@jimtim.de>
 
